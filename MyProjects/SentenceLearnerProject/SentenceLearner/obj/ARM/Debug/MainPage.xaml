@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="SentenceLearner.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SentenceLearner"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.DataContext>
+        <local:MainPageViewModel />
+    </Page.DataContext>
+    <Grid>
+        <StackPanel>
+            <TextBlock Text="{Binding Path=JapaneseSentense}" FontSize="20"/>
+            <TextBlock Text="{Binding Path=EnglishSentense}" FontSize="20" />
+            <ListView HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
+            <StackPanel Orientation="Horizontal">
+                <ItemsControl ItemsSource="{Binding Path=Words}" >
+                        <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Content="{Binding Path=Word}" Command="{Binding Path=Selected}" Margin="1"/>
+                            <!--<TextBlock Text="{Binding Path=Word}" Margin="5" FontSize="18"/>-->
+                        </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Button Content="OK" />
+                <Button Content="Next" Command="{Binding Path=NextCommand}"/>
+            </StackPanel>
+        </StackPanel>
+
+
+    </Grid>
+</Page>
+

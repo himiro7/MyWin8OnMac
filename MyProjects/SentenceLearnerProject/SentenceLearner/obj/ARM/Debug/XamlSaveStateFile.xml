@@ -1,0 +1,8 @@
+<XamlCompilerSaveState>
+  <ReferenceAssemblyList>
+    <LocalAssembly PathName="c:\users\hi_tanig8\documents\visual studio 2013\projects\winphone\sentencelearner\sentencelearner\obj\arm\debug\intermediatexaml\sentencelearner.exe" HashGuid="a4eb7dc7-5146-88be-c95b-61ff3dacfd5d" />
+    <ReferenceAssembly PathName="c:\users\hi_tanig8\documents\visual studio 2013\projects\winphone\sentencelearner\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.mvvm.dll" HashGuid="cbdd458f-3f7b-91dd-175a-6fbe0d8f860e" />
+    <ReferenceAssembly PathName="c:\users\hi_tanig8\documents\visual studio 2013\projects\winphone\sentencelearner\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.mvvm.phone.dll" HashGuid="347692ae-d3bb-41c8-00a0-1222d3d82e87" />
+    <ReferenceAssembly PathName="c:\users\hi_tanig8\documents\visual studio 2013\projects\winphone\sentencelearner\packages\prism.mvvm.1.1.1\lib\wpa81\microsoft.practices.prism.sharedinterfaces.dll" HashGuid="77ddb96d-234e-bbe6-7043-530fe79bc489" />
+  </ReferenceAssemblyList>
+</XamlCompilerSaveState>
