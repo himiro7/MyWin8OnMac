@@ -11,33 +11,43 @@
     <Page.DataContext>
         <local:MainPageViewModel />
     </Page.DataContext>
+
     <Grid>
         <StackPanel>
-            <TextBlock Text="{Binding Path=JapaneseSentense}" FontSize="20"/>
-            <TextBlock Text="{Binding Path=EnglishSentense}" FontSize="20" />
-            <ListView HorizontalAlignment="Left" Height="100" VerticalAlignment="Top" Width="100"/>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Height="200">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Sentence No." FontSize="14"/>
+                    <TextBlock Text="{Binding Path=SentenceNumber}" FontSize="14"/>
+                    <TextBlock Text="{Binding Path=Result}" FontSize="16" Margin="20,0,0,0"/>
+                </StackPanel>
+                <Slider Margin="15,0,15,0" Value="{Binding Path=Progress}" />
+                <TextBlock Text="{Binding Path=JapaneseSentense}" FontSize="20" TextWrapping="Wrap" Margin="15,0,15,0"/>
+                <TextBlock Text="{Binding Path=EnglishSentense}" FontSize="20" TextWrapping="Wrap" Margin="15,5,15,0"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <Button Content="進む" Command="{Binding Path=NextCommand}" MinWidth="90"/>
+                <Button Content="取消" Command="{Binding Path=CancelCommand}" MinWidth="90"/>
+                <Button Content="戻る" Command="{Binding Path=BackCommand}" MinWidth="90"/>
+                <Button Content="断念" Command="{Binding Path=GiveUpCommand}" MinWidth="90"/>
+            </StackPanel>
+            
+            <StackPanel Orientation="Horizontal" Margin="10" >
                 <ItemsControl ItemsSource="{Binding Path=Words}" >
                         <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding Path=Word}" Command="{Binding Path=Selected}" Margin="1"/>
+                            <Button Content="{Binding Path=Word}" Command="{Binding Path=Selected}"
+                                    IsEnabled="{Binding Path=State}" Margin="1"/>
                             <!--<TextBlock Text="{Binding Path=Word}" Margin="5" FontSize="18"/>-->
                         </DataTemplate>
                         </ItemsControl.ItemTemplate>
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel />
+                            <WrapGrid Orientation="Horizontal" Width="400" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                 </ItemsControl>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Back" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                <Button Content="OK" />
-                <Button Content="Next" Command="{Binding Path=NextCommand}"/>
-            </StackPanel>
         </StackPanel>
-
-
     </Grid>
 </Page>

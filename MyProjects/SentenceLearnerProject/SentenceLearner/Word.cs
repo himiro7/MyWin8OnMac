@@ -5,14 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.Practices.Prism.Commands;
+using System.ComponentModel;
+using Microsoft.Practices.Prism.ViewModel;
 
 namespace SentenceLearner
 {
-    class Item
+    class WordButtonViewModel : INotifyPropertyChanged
     {
-        private Action<string> _action;
+        public event PropertyChangedEventHandler PropertyChanged;
+   
+        private Action<WordButtonViewModel> _action;
 
-        public Item(Action<string> action)
+        public WordButtonViewModel(Action<WordButtonViewModel> action)
         {
             _action = action;
         }
@@ -30,9 +34,29 @@ namespace SentenceLearner
             }
         }
 
+        private bool _State;
+        public bool State
+        {
+            get { return _State; }
+            set
+            {
+                if (value != _State)
+                {
+                    _State = value;
+                    var handler = this.PropertyChanged;
+                    if( handler != null)
+                    {
+                        this.PropertyChanged(this, new PropertyChangedEventArgs("State"));
+                    }
+                }
+                
+            }
+        }
+
         private void selected()
         {
-            _action(Word);
+            State = false;
+            _action(this);
         }
     }
 }
